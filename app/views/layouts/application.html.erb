@@ -11,12 +11,17 @@
   </head>
 
   <body>
-  <div class="container">
-    <nav class="navbar navbar-light" style="background-color: #1B9CFC;">
-       <span class="navbar-brand mb-0 h1" style="color: white;">CocktailBOSS</span>
+    <nav class="navbar navbar-light">
+      <div class="container">
+        <a href="<%= cocktails_path %>" class="navbar-brand">
+          <img src="<%= asset_path "tequila.png" %>" alt="logo" width="45">
+          <span class="text-uppercase font-weight-bold" style="color: white;">CocktailBOSS</span>
+        </a>
+      </div>
     </nav>
+
    <%= yield %>
-  </div>
+
 
 
 

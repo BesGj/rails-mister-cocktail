@@ -1,8 +1,7 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path "banner.jpg" %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path "project.jpg" %>);">
   <div class="container">
     <h1>Make your <strong>own cocktail</strong> be <strong>creative</strong>!</h1>
-
-    <a class="btn btn-flat" href="#">Try it Now</a>
+    <%= link_to "Try it Now", new_cocktail_path, class: "btn btn-flat" %>
   </div>
 </div>
 
@@ -13,7 +12,7 @@
   <% end %>
 </ul>
 
-<%= link_to "Add your favorite cocktail", new_cocktail_path %>
+
 
 
 
