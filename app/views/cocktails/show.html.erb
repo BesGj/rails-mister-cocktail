@@ -1,10 +1,15 @@
 
 
-<div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @cocktail.photo.key, height: 300, crop: :fill %>)">
+<% if @cocktail.photo.attached?  %>
+
+<div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 300, crop: :fill %>')">
    <%= @cocktail.name.upcase %>
 </div>
 
-
+<%else  %>
+  <div >
+    <%=   %>
+<%end  %>
 <div class="container-show">
   <h2><% @cocktail.doses.each do |dose| %></h2>
        <p><%=dose.ingredient.name.upcase  %></p>
@@ -21,6 +26,17 @@
     <% end %>
 
     <%= link_to "Go Back", cocktails_path, class: "btn btn-flat", id: "show-button"%>
-    <%= link_to "Leave a Review", new_cocktail_review_path(:cocktail_id), class: "btn btn-flat", id: "show-button"%>
+
+    <%= render "reviews/new", cocktail: @cocktail, review: @review   %>
+
+    <% if @cocktail.reviews.empty?  %>
+      <p>Be the first to leave a review </p>
+    <% else  %>
+      <% @cocktail.reviews.each do |review| %>
+      <p><%= review.content  %></p>
+      <p><%= review.rating  %></p>
+      <%end  %>
+     <%end  %>
+
 
 </div>
